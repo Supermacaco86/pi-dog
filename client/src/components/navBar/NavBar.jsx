@@ -9,7 +9,7 @@ export default function Navbar({setCurrentPage}) {
       setCurrentPage={setCurrentPage}
       />
     <Link to='/home'>
-    <div>Navbar</div>
+    <div>home</div>
     </Link>
     
     </div>
