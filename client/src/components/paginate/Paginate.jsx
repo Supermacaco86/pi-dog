@@ -15,7 +15,7 @@ export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, cur
              <button onClick={()=>
             setCurrentPage(currentPage ===1? 
             currentPage:
-            currentPage-1)}>Prev</button> 
+            currentPage-1)}>Previo</button> 
             {PageNumber && PageNumber.map((number)=>(
             <button 
             key={number}
@@ -25,7 +25,7 @@ export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, cur
              <button onClick={()=> 
             setCurrentPage(currentPage ===numPage?
             currentPage:
-            currentPage + 1)}>Next</button> 
+            currentPage + 1)}>Siguiente</button> 
         </ul>
     </div>
   )

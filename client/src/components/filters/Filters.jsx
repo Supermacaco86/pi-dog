@@ -18,11 +18,11 @@ function onChageExist(e){
 
     return (
         <div>
-        <h2>FILTROS</h2>
+        <h2>Filtros</h2>
         <div>
         
         <select onChange={onChageExist}>
-            <option value="" disabled selected>Filter by create</option>
+            <option value="" disabled selected>Filtro creados</option>
             <option value="all">Todos</option>
             <option value="exist">De API</option>
             <option value="created">De database</option>
@@ -31,7 +31,7 @@ function onChageExist(e){
 
         <select onChange={(e) => handleFilterTemp(e)}>
             <option value="" disabled selected>Filtro por temperamento</option>
-            <option value="all">All</option>
+            <option value="all">Todos</option>
             {allTemps.map((e) => (
             <option key={e} value={e}>{e}</option>
             ))}
@@ -39,7 +39,7 @@ function onChageExist(e){
 
         <h2>Orden por:</h2> 
         <select onChange={(e) => handleSortWeight(e)}>
-            <option value=""disabled selected >Order by weight</option>
+            <option value=""disabled selected >Orden por peso</option>
             <option value="weightasc">Mas pesado</option>
             <option value="weightdesc">Mas liviano</option>
         </select>
@@ -52,7 +52,7 @@ function onChageExist(e){
         </select>
 
         </div>
-        <button onClick={(e)=>handleReset(e)}>Reset</button>
+        <button onClick={(e)=>handleReset(e)}>Recargar</button>
         
         </div>
     );

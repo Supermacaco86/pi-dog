@@ -22,7 +22,7 @@ const getApiDogs = async () => {
         life_min: e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
         life_max: e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1],
         temp: e.temperament ? e.temperament : "Temperamento no encontrado",
-        image: e.image.url,
+        image: e.image.url?e.image.url:"Imagen no encontrada",
       };
     });
 
