@@ -1,0 +1,17 @@
+/* .card{
+    display: grid;
+    height: 650px;
+    width: 100%;
+    margin-bottom: 1%;
+    gap: 1%;
+    grid-template-columns: repeat(3, 1fr);
+} */
+
+.gallery{
+    display: grid;
+    gap:2rem;
+    /* align-items: center;  */
+    grid-auto-rows:20rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    justify-items: center;
+}
