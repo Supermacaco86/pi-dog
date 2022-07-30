@@ -1,11 +1,12 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from "react-router-dom"
+//import {Link} from "react-router-dom"
 import {getDogs, getTemps, orderByName, filterByTemp, orderByWeight} from '../../actions/index';
 import NavBar from '../navBar/NavBar.jsx';
 import Cards from '../cards/Cards';
 import Filters from "../filters/Filters";
+import "./Home.css"
 
 
 
@@ -67,11 +68,9 @@ export default function Home(){
 
 
     return(
-        <div> 
+        <div className="home"> 
 
-        <Link to="/post">
-        <p>Creá tu propio perro</p>
-        </Link>
+      
         <NavBar
         setCurrentPage={setCurrentPage}
         />

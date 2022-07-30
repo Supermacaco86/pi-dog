@@ -1,0 +1,17 @@
+button {
+    color: #090909;
+    padding: 0.1em .5em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background:   #1b534d;
+    border: 1px solid  rgb(38, 106, 145);
+    transition: all .3s;
+    /* box-shadow: 6px 6px 12px rgb(38, 106, 145),
+                -6px -6px 12px rgb(38, 106, 145); */
+   }
+   
+   button:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #2b979f,
+                inset -4px -4px 12px #2b979f;
+   }

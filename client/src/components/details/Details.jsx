@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { getDetails, getClean} from "../../actions/index";
 import {useEffect, useState} from "react";
 import Loading from "../loading/Loading";
-//import "../styles/Details.css"
+
 
 
 export default function Details(){

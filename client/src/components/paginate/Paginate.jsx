@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Paginate.css"
 
 
 export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, currentPage,}) {
@@ -11,7 +12,7 @@ export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, cur
 
     return (
     <div>
-        <ul>
+        <ul className='button'>
              <button onClick={()=>
             setCurrentPage(currentPage ===1? 
             currentPage:

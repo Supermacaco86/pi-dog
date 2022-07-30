@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       defaultValue: ('https://th.bing.com/th/id/OIP.DBB5qYtSyaqgwTFXpqBWrwHaE8?pid=ImgDet&rs=1'),
       allowNull: true,
     },

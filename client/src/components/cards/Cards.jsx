@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../card/Card";
 import Paginate from "../paginate/Paginate";
 import "./Cards.css"
-// import {Link} from "react-router-dom"
+
 
 
 
@@ -33,7 +33,6 @@ export default function Cards({dogByPage, dogs, paginate, currentDog, setCurrent
                 )
         })
         }
-        <Card/>
         </div>
         </div>
       )

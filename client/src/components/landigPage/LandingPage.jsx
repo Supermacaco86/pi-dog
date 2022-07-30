@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-//import "../Estilos/landingPage.css" 
+
 
 export default function landingPage (){
     return(

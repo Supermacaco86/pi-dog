@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {getDogByName} from "../../actions/index";
+import "./SearchBar.css"
 
 
 export default function SearchBar({setCurrentPage}){
@@ -21,8 +22,8 @@ export default function SearchBar({setCurrentPage}){
     }
 
     return(
-        <div>
-            <input
+        <div className='search'>
+            <input 
             value= {input}
             type = 'text'
             placeholder="Buscar..."

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { getDogs } from "../../actions";
 
-//import { Link } from "react-router-dom";
+
 
 
 
