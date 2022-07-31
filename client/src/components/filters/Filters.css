@@ -53,5 +53,18 @@
     top: -10px;
     transition: 0.2s;
   }
+  .total{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: initial;
+    padding: 30px;
+  }
+.filtros{
+  display: flex;
+justify-content:flex-start;
+}
 
-
+.orden{
+  display: flex;
+  justify-content: flex-end;
+}

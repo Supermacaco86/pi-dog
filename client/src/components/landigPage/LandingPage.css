@@ -1,4 +1,7 @@
 .landing{
     display: flex;
     justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    color: rgb(208, 184, 154);
 }
