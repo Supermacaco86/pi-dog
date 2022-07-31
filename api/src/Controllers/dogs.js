@@ -253,9 +253,9 @@ const putDog = async (req, res) => {
 
 const deleteDog = async (req, res) => {
   try {
-    const id = req.params.id;
+    const { name } = req.query;
     await Dog.destroy({
-      where: { id: id },
+      where: { name: name },
     });
     return res.send("deleted!");
   } catch (error) {
@@ -273,6 +273,19 @@ module.exports = {
 };
 
 /*
+
+
+const deleteDog = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Dog.destroy({
+      where: { id: id },
+    });
+    return res.send("deleted!");
+  } catch (error) {
+    return error;
+  }
+};
 "id": "5d5f",
     "name": "Bond",
     "height_min": "10",
