@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
 import {getDogByName} from "../../actions/index";
 import "./SearchBar.css"
 
@@ -22,14 +22,16 @@ export default function SearchBar({setCurrentPage}){
     }
 
     return(
-        <div className='search'>
-            <input 
+        <div className="form__group">
+        <div >
+            <input className="form__field w-100"
             value= {input}
             type = 'text'
             placeholder="Buscar..."
             onChange={(e)=>handleInputChange(e)}
             />
             <button type="submit" onClick={(e)=>handleSubmit(e)}>Buscar</button> 
+        </div>
         </div>
     )
 }

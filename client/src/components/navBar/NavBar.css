@@ -1,9 +1,9 @@
 .navBar{
-    justify-content: center;
+     justify-content: flex-end; 
     /* padding: 25px; */
     border-radius: 8px;
-    display: grid;
-    position:static;
+    display: flex;
+    /* position:static; */
     background: #1b534d;
     width: 100%;
     height: 80px; 
@@ -12,8 +12,20 @@
            width:70px ; 
         }
         }
-    
 }
 
 
- 
+.titulo h3{
+    
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search{
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+

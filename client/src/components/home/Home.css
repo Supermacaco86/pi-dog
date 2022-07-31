@@ -1,7 +1,7 @@
-*{
+/* {
     margin: 0px;
     padding: 0px;
-}
+} */
 body{
     height: 100%;
     min-height: 100vh;
@@ -17,10 +17,13 @@ body{
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);;
 } */
 .home{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: larger;
+    color: rgb(208, 184, 154);
     margin: auto;
     margin-top:20px ;
     border-radius: 9px;
-    width: 900px;
+    width: 1100px;
     height: auto; 
     background-image: linear-gradient(160deg, #461016 0%, #1b534d 100%);
 }
@@ -53,5 +56,4 @@ body{
     }
     }
 
-
-
+   

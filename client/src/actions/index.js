@@ -98,11 +98,10 @@ export function orderByWeight(payload){
     }
 };
 
-
-// export function addDogs(payload){
-//     return async function(dispatch){
-//         var json = await axios.post("/dogs",payload)
-//         return json
-//     }
-// }
+export function addDogs(payload){
+    return async function(dispatch){
+        var json = await axios.post("/dogs",payload)
+        return json
+    }
+}
 

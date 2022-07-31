@@ -6,20 +6,19 @@ import "./NavBar.css"
 export default function Navbar({setCurrentPage}) {
   return (
     <div className='navBar'>
-      <div >
+      <div className='titulo'>
+        <h1>Todos los perros del mundo</h1>
+      </div>
+      <div className="search">
         <SearchBar 
         setCurrent Page={setCurrentPage}
       />
       </div>
-      <div>
+      <div >
           <Link to="/post">
           <p>Creá tu propio perro</p>
           </Link>
         </div>
-        {/* <Link to='/home'>
-        <div>home</div>
-        </Link> */}
-    
     </div>
   )
   

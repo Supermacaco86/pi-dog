@@ -1,9 +1,10 @@
 import React from "react";
 import {Link, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { getDetails, getClean} from "../../actions/index";
+import {getDetails, getClean} from "../../actions/index";
 import {useEffect, useState} from "react";
 import Loading from "../loading/Loading";
+import "./Details.css"
 
 
 
@@ -22,7 +23,7 @@ export default function Details(){
     }, [dispatch, id])
 
     return(
-        <div>
+        <div className="details">
              { loading === true? (<Loading setLoading={setLoading}/>):
              <div>
             <img alt="img" width="250px"height="150px" src= {detailDog.length? detailDog[0].image:"Imagen no encontrada"}/>

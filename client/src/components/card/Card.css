@@ -16,7 +16,7 @@
 
 .card{
     position: relative;
-    width: 230px;
+    width: 240px;
     height: 300px;
     /* margin: 20px; */
 }
@@ -39,7 +39,7 @@
 .card .front img{
     position:relative;
     width: 100%;
-    height: 85%;
+    height: 80%;
     background-size: 100% 100%;
     /* object-fit: cover; */
 }
@@ -48,7 +48,7 @@
     position: absolute;
     width: 100%;
     bottom: 0;
-    height: 45px;
+    height: 35px;
     line-height: 45px;
     color: #fff;
     background: rgba (0, 0, 0, .4);
@@ -57,7 +57,7 @@
 
 .card .back{
     transform: perspective(600px) rotateY(180deg);
-    background: rgb(33, 149, 217);
+    background: rgb(62, 53, 95);
     padding: 15px;
     color: #f3f3f3;
     display: flex;

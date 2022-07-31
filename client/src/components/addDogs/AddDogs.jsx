@@ -4,7 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {addDogs, getTemps} from "../../actions/index";
 import {useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-
+import "./AddDogs.css"
 
  
 export default function AddDogs(){
@@ -56,7 +56,7 @@ console.log(input)
       async function handleSubmit(e){
         e.preventDefault()
         console.log(input)
-       await axios.post("http://localhost:3001/dogs",input)
+        dispatch(addDogs(input))
        alert("Perro creado correctamente!")
        setInput({
                 name: "",
@@ -79,17 +79,19 @@ console.log(input)
 
 
     return(
-        <div>
+        <div className="todo">
+        <div className="form__group">
             <Link to="/home">
             <button>Volver a home</button>
             </Link>
 
-            <h1>Crea un nuevo perro!</h1>
+            <h1 className="letra">Crea un nuevo perro!</h1>
 
             <form onSubmit={(e) => handleSubmit(e)}>
             <label>Raza:</label>
             <br/>
                 <input
+                className="form__field w-100"
                 type="text"
                 value={input.name}
                 name="name"
@@ -102,6 +104,7 @@ console.log(input)
             <label>Tamaño:</label>
             <div>
                 <input
+                className="form__field w-100"
                 type="number"
                 min="1"
                 max="100"
@@ -115,6 +118,7 @@ console.log(input)
             </div>
             <div>
                 <input
+                className="form__field w-100"
                 type="number"
                 min="1"
                 max="100"
@@ -129,6 +133,7 @@ console.log(input)
             <label>Peso:</label>
             <div>
                 <input
+                className="form__field w-100"
                 type="number"
                 min="1"
                 max="100"
@@ -142,6 +147,7 @@ console.log(input)
             </div>
             <div>
                 <input
+                className="form__field w-100"
                 type="number"
                 min="1"
                 max="100"
@@ -156,6 +162,7 @@ console.log(input)
             <label>Años de vida:</label>
             <div>
                 <input
+                className="form__field w-100"
                 min="1"
                 max="100"
                 type="number"
@@ -169,6 +176,7 @@ console.log(input)
             </div>
             <div>
                 <input
+                className="form__field w-100"
                 min="1"
                 max="100"
                 type="number"
@@ -182,6 +190,7 @@ console.log(input)
             </div>
             <label>Imagen:</label>
             <input
+                className="form__field w-100"
                 type="imagen"
                 value={input.image}
                 name="image"
@@ -190,7 +199,7 @@ console.log(input)
             />
             <br/>
             <label>Temperamentos:</label>
-                <select onChange={(e) => handleSelect(e)}>
+                <select className="form__field w-100" onChange={(e) => handleSelect(e)}>
                 {temperaments.map((e) => (
                 <option value={e} key={e}>{e}</option>
                 ))}</select>
@@ -204,6 +213,7 @@ console.log(input)
                 <button type="submit">Crear!</button>
                 </div> 
              </form>
+        </div>
         </div>
     )
 }
