@@ -3,13 +3,13 @@ import axios from "axios";
 export function getDogs(exist){ 
     return async function (dispatch){
         if(exist){
-            var json = await axios.get(`/filter/${exist}`)
+            const json = await axios.get(`/filter/${exist}`)
             return dispatch({
                 type: 'GET_DOGS',
                 payload: json.data
             })
             }else{
-                var json1 = await axios.get(`/dogs`)
+                const json1 = await axios.get(`/dogs`)
             return dispatch({
                 type: 'GET_DOGS',
                 payload: json1.data
@@ -22,7 +22,7 @@ export function getDogs(exist){
 export function getDogByName(payload){
     return async function(dispatch){
        try{
-            var json = await axios.get(`/dogs?name=${payload}`)
+            const json = await axios.get(`/dogs?name=${payload}`)
             return dispatch({
                 type: 'GET_DOG_BY_NAME',
                 payload: json.data
@@ -37,7 +37,7 @@ export function getDogByName(payload){
 
 export function getTemps(){
     return async function(dispatch){
-        var json = await axios.get("/temps",{})
+        const json = await axios.get("/temps",{})
         return dispatch({
             type: 'GET_TEMPS',
             payload: json.data 
@@ -48,7 +48,7 @@ export function getTemps(){
 export function getDetails(id){
     return async function (dispatch){
         try{
-            var json = await axios.get(`/dogs/${id}`)
+            const json = await axios.get(`/dogs/${id}`)
             return dispatch({
                 type: 'GET_DETAILS',
                 payload: json.data
@@ -61,6 +61,16 @@ export function getDetails(id){
         }
     }
 };
+
+export function deleteDog(id){
+    return async function(dispatch){
+        const json = await axios.delete(`/delete/${id}`)
+        return dispatch({
+            type:'DELETE_DOG',
+            payload: json.data,
+        })
+    } 
+}
 
 export function getClean () {
     return{

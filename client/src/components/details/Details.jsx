@@ -1,21 +1,29 @@
 import React from "react";
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {getDetails, getClean} from "../../actions/index";
-import {useEffect, useState} from "react";
+import {getDetails, getClean, deleteDog} from "../../actions/index";
+import {useEffect} from "react";
 import Loading from "../loading/Loading";
 import "./Details.css"
 
 
 
 export default function Details(){
+    const history = useNavigate();
     const dispatch = useDispatch();
     const {id} = useParams();
-    const [loading, setLoading] = useState(true);
+    //const [loading, setLoading] = useState(true);
     //const id = props.match.params.id;
     const detailDog = useSelector((state)=>state.details)
-    console.log(detailDog)
- 
+    const loading = useSelector((state) => state.loading)
+    //console.log(detailDog)
+
+    function handleDelete(e){
+        e.preventDefault(e);
+        dispatch(deleteDog(id))
+        alert("Perro borrado correctamente!")
+        history('/home')
+    } 
 
     useEffect(() => {
         dispatch(getDetails(id))
@@ -24,7 +32,8 @@ export default function Details(){
 
     return(
         <div className="details">
-             { loading === true? (<Loading setLoading={setLoading}/>):
+            {loading && <Loading/>}
+             {/* { loading === true? (<Loading setLoading={setLoading}/>): */}
              <div>
             <img alt="img" width="250px"height="150px" src= {detailDog.length? detailDog[0].image:"Imagen no encontrada"}/>
             <h2>Nombre: { detailDog.length? detailDog[0].name: "Cargando"}</h2>
@@ -33,8 +42,9 @@ export default function Details(){
             <h3>Altura: { detailDog.length? detailDog[0].height_min: "Cargando"} - { detailDog.length? detailDog[0].height_max: "Cargando"} Cm.</h3>
             <h3>Estimado de vida de { detailDog.length? detailDog[0].life_min: "Cargando"} a { detailDog.length? detailDog[0].life_max: "Cargando"}</h3>
             <Link to="/home"><button >Volver a home</button></Link>
+            <button onClick={handleDelete}>Borrar</button>
             </div>
-                }
+                
             </div>
     
     )

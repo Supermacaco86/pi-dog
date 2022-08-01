@@ -40,7 +40,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: ('https://th.bing.com/th/id/OIP.DBB5qYtSyaqgwTFXpqBWrwHaE8?pid=ImgDet&rs=1'),
+      defaultValue: ("https://th.bing.com/th/id/R.e95c6ea4db3b79eda1c8a94c886c8071?rik=GhlexzYxf4p9RQ&pid=ImgRaw&r=0"),
       allowNull: true,
     },
     dogCreated: {

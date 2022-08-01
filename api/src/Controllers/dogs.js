@@ -54,6 +54,7 @@ const getDbDogs = async () => {
         weight_max: e.weight_max,
         life_min: e.life_min,
         life_max: e.life_max,
+        image: e.image,
       };
     });
     return dbDog;
@@ -129,7 +130,7 @@ const postDog = async (req, res) => {
       weight_max: weight_max,
       life_min: life_min,
       life_max: life_max,
-      image: image,
+      image: image || "https://th.bing.com/th/id/R.e95c6ea4db3b79eda1c8a94c886c8071?rik=GhlexzYxf4p9RQ&pid=ImgRaw&r=0",
     };
     if(isNaN(name) === false)return res.send("El valor ingresado no debe ser numerico.")
     if(!name || !height_min || !height_max || !weight_min ||!weight_max || !life_min || !life_max ){
@@ -253,9 +254,9 @@ const putDog = async (req, res) => {
 
 const deleteDog = async (req, res) => {
   try {
-    const { name } = req.query;
+    const {id} = req.params;
     await Dog.destroy({
-      where: { name: name },
+      where: { id: id },
     });
     return res.send("deleted!");
   } catch (error) {

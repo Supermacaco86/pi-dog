@@ -18,7 +18,7 @@ router.get("/temps", getTemp);
 router.get("/dogs/:id", getDogById );
 router.post("/dogs", postDog);
 router.put("/edit/:id", putDog);
-router.delete("/delete", deleteDog)
+router.delete("/delete/:id", deleteDog)
 
 
 module.exports = router;

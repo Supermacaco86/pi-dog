@@ -7,13 +7,14 @@ import "./Filters.css"
 
 
 
-export default function Filters({ allTemps, handleReset, handleSort, handleFilterTemp, handleSortDogs, handleSortWeight}) {
+export default function Filters({ allTemps, setCurrentPage, handleReset, handleSort, handleFilterTemp, handleSortDogs, handleSortWeight}) {
 const dispatch = useDispatch();
 
 function onChageExist(e){
     let value = e.target.value;
     dispatch(getDogs(value))
-
+    //setInput('')
+    setCurrentPage(1)
 }
 
 

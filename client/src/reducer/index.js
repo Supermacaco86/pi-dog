@@ -29,7 +29,8 @@ function rootReducer (state = initialState, action){
         case "GET_DETAILS":
             return{
                 ...state,
-                details: action.payload
+                details: action.payload,
+                loading: false
             };
         case "GET_CLEAN":
             return {

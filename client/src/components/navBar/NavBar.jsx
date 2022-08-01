@@ -11,7 +11,7 @@ export default function Navbar({setCurrentPage}) {
       </div>
       <div className="search">
         <SearchBar 
-        setCurrent Page={setCurrentPage}
+        setCurrentPage={setCurrentPage}
       />
       </div>
       <div className='link'>

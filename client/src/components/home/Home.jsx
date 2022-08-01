@@ -1,7 +1,6 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-//import {Link} from "react-router-dom"
 import {getDogs, getTemps, orderByName, filterByTemp, orderByWeight} from '../../actions/index';
 import NavBar from '../navBar/NavBar.jsx';
 import Cards from '../cards/Cards';
@@ -17,7 +16,7 @@ export default function Home(){
     const dogs = useSelector(state => state.dogs);
     const loading = useSelector(state=> state.loading)
     const dispatch = useDispatch();
-    //console.log(dogs)
+    console.log(dogs)
 
     const[currentPage, setCurrentPage]= useState(1);
     const[dogByPage]=useState(8);
@@ -82,6 +81,7 @@ export default function Home(){
         handleSort={handleSort}
         handleFilterTemp={handleFilterTemp}
         handleSortWeight={handleSortWeight}
+        setCurrentPage={setCurrentPage}
         />
         {loading && <Loading/>}
         <Cards 
