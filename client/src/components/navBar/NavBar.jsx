@@ -16,7 +16,7 @@ export default function Navbar({setCurrentPage}) {
       </div>
       <div className='link'>
           <Link to="/post">
-          <p>Creá tu propio perro</p>
+          <p className='link'>Creá tu propio perro</p>
           </Link>
         </div>
     </div>

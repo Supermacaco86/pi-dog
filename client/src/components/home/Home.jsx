@@ -7,6 +7,7 @@ import NavBar from '../navBar/NavBar.jsx';
 import Cards from '../cards/Cards';
 import Filters from "../filters/Filters";
 import "./Home.css"
+import Loading from "../loading/Loading";
 
 
 
@@ -14,6 +15,7 @@ import "./Home.css"
 export default function Home(){
     const allTemps = useSelector(state => state.temps);
     const dogs = useSelector(state => state.dogs);
+    const loading = useSelector(state=> state.loading)
     const dispatch = useDispatch();
     //console.log(dogs)
 
@@ -81,6 +83,7 @@ export default function Home(){
         handleFilterTemp={handleFilterTemp}
         handleSortWeight={handleSortWeight}
         />
+        {loading && <Loading/>}
         <Cards 
         dogByPage={dogByPage}
         dogs={dogs}
