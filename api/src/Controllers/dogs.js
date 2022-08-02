@@ -133,7 +133,7 @@ const postDog = async (req, res) => {
       image: image || "https://th.bing.com/th/id/R.e95c6ea4db3b79eda1c8a94c886c8071?rik=GhlexzYxf4p9RQ&pid=ImgRaw&r=0",
     };
     if(isNaN(name) === false)return res.send("El valor ingresado no debe ser numerico.")
-    if(!name || !height_min || !height_max || !weight_min ||!weight_max || !life_min || !life_max ){
+    if(!name || !height_min || !height_max || !weight_min ||!weight_max || !life_min || !life_max || !temp ){
       return res.send("Falta informcion.")}
     const validate = await Dog.findOne({
       where:{name}

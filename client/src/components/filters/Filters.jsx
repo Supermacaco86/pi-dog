@@ -12,9 +12,12 @@ const dispatch = useDispatch();
 
 function onChageExist(e){
     let value = e.target.value;
-    dispatch(getDogs(value))
-    //setInput('')
-    setCurrentPage(1)
+    if(value === "all"){
+        dispatch(getDogs())
+        setCurrentPage(1)
+    }else{dispatch(getDogs(value))
+        setCurrentPage(1)
+    }
 }
 
 

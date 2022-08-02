@@ -9,7 +9,7 @@ export function getDogs(exist){
                 payload: json.data
             })
             }else{
-                const json1 = await axios.get(`/dogs`)
+            const json1 = await axios.get(`/dogs`)
             return dispatch({
                 type: 'GET_DOGS',
                 payload: json1.data

@@ -21,7 +21,6 @@ export default function Home(){
     const[currentPage, setCurrentPage]= useState(1);
     const[dogByPage]=useState(8);
     const [order, setOrder] = useState('');
-
     console.log(order)
 
     let indexLastDog = currentPage * dogByPage;
@@ -70,8 +69,6 @@ export default function Home(){
 
     return(
         <div className="home"> 
-
-      
         <NavBar
         setCurrentPage={setCurrentPage}
         />

@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {addDogs, getTemps} from "../../actions/index";
 import {useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+//import axios from "axios";
 import "./AddDogs.css"
 
  
@@ -206,6 +206,8 @@ console.log(input)
                 {input.temp?.map(e =>
                 <div>
                     <spam onClick ={()=>handleDelete(e)}>{e}</spam>
+                    <button key={e} className="botonX" onClick={()=> handleDelete(e)}>X</button>
+
                 </div>
                 )}
                 <br/>

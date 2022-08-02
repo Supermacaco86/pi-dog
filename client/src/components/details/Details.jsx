@@ -33,7 +33,6 @@ export default function Details(){
     return(
         <div className="details">
             {loading && <Loading/>}
-             {/* { loading === true? (<Loading setLoading={setLoading}/>): */}
              <div>
             <img alt="img" width="250px"height="150px" src= {detailDog.length? detailDog[0].image:"Imagen no encontrada"}/>
             <h2>Nombre: { detailDog.length? detailDog[0].name: "Cargando"}</h2>
@@ -43,8 +42,7 @@ export default function Details(){
             <h3>Estimado de vida de { detailDog.length? detailDog[0].life_min: "Cargando"} a { detailDog.length? detailDog[0].life_max: "Cargando"}</h3>
             <Link to="/home"><button >Volver a home</button></Link>
             <button onClick={handleDelete}>Borrar</button>
-            </div>
-                
+            </div>  
             </div>
     
     )
