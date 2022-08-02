@@ -4,26 +4,30 @@ import "./Paginate.css"
 
 export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, currentPage,}) {
   
-    const PageNumber=[];
+    const pageNumber=[];
     let numPage = Math.ceil(dogs/dogByPage );
     for(let i=1; i <= numPage; i++){
-    PageNumber.push(i)
+    pageNumber.push(i)
   }
-
     return (
     <div>
         <ul className='button'>
-             <button onClick={()=>
-            setCurrentPage(currentPage ===1? 
+            <button 
+            disabled={currentPage === 1}
+            onClick={()=>
+            setCurrentPage(currentPage === 1? 
             currentPage:
             currentPage-1)}>Previo</button> 
-            {PageNumber && PageNumber.map((number)=>(
+            {pageNumber && pageNumber.map((number)=>(
             <button 
+            disabled={currentPage === number}
             key={number}
             onClick={()=> paginate(number)}>{number}
             </button>
             ))}
-             <button onClick={()=> 
+            <button
+            disabled={currentPage === pageNumber.length }
+            onClick={()=> 
             setCurrentPage(currentPage ===numPage?
             currentPage:
             currentPage + 1)}>Siguiente</button> 

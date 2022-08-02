@@ -8,6 +8,12 @@ const getApiDogs = async () => {
   try {
     const apiUrl = await axios.get("https://api.thedogapi.com/v1/breeds");
     const apiInfo = await apiUrl.data.map((e) => {
+      if(e.life_span.includes('-')) {
+        var lifeMin = e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0];
+        var lifeMax = e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1].split(" ")[0]
+      }else {
+        var life = e.life_span.split(' ')[0]
+      }
       return {
         id: e.id,
         name: e.name,
@@ -19,14 +25,13 @@ const getApiDogs = async () => {
           e.weight.metric.split(" - ")[0] && e.weight.metric.split(" - ")[0],
         weight_max:
           e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
-        life_min: e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
-        life_max: e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1],
+        life_span: life? life + ' años': 'de ' + lifeMin + ' a ' + lifeMax + ' años',
         temp: e.temperament ? e.temperament : "Temperamento no encontrado",
         image: e.image.url?e.image.url:"Imagen no encontrada",
       };
     });
 
-    return apiInfo;
+    return apiInfo ;
   } catch (error) {
     return error;
   }

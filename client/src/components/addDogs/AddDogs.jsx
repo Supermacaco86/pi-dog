@@ -212,7 +212,18 @@ console.log(input)
                 )}
                 <br/>
                 <div>
-                <button type="submit">Crear!</button>
+                <button
+                disabled={
+                    !input.name ||
+                    !input.height_min ||
+                    !input.height_max ||
+                    !input.weight_min ||
+                    !input.weight_max ||
+                    !input.life_min ||
+                    !input.life_max ||
+                    !input.temp.length
+                }
+                type="submit">Crear!</button>
                 </div> 
              </form>
         </div>

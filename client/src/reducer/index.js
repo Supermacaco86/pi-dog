@@ -35,7 +35,7 @@ function rootReducer (state = initialState, action){
         case "GET_CLEAN":
             return {
                 ...state,
-                detail: action.payload
+                details: action.payload
             };
 
         case 'FILTER_BY_TEMP':
