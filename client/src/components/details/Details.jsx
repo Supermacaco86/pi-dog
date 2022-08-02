@@ -50,7 +50,7 @@ export default function Details(){
             <h3>Temperamento: { details.length? details[0].temp: "Cargando"}</h3>
             <h3>Peso: { details.length? details[0].weight_min: "Cargando"} - { details.length? details[0].weight_max: "Cargando"} kg.</h3>
             <h3>Altura: { details.length? details[0].height_min: "Cargando"} - { details.length? details[0].height_max: "Cargando"} Cm.</h3>
-            <h3>Tiempo de vida {lifeSpan}</h3>
+            <h3>Tiempo de vida {lifeSpan} años</h3>
             <Link to="/home"><button >Volver a home</button></Link>
             <button onClick={handleDelete}>Borrar</button>
             </div>  

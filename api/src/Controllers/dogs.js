@@ -25,7 +25,7 @@ const getApiDogs = async () => {
           e.weight.metric.split(" - ")[0] && e.weight.metric.split(" - ")[0],
         weight_max:
           e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
-        life_span: life? life + ' años': 'de ' + lifeMin + ' a ' + lifeMax + ' años',
+        life_span: life? life : 'de ' + lifeMin + ' a ' + lifeMax ,
         temp: e.temperament ? e.temperament : "Temperamento no encontrado",
         image: e.image.url?e.image.url:"Imagen no encontrada",
       };
