@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { postDog, getDogs, getDogById,  putDog, deleteDog, getDogsfitered } = require("../Controllers/dogs")
+const { postDog, getDogs, getDogById, putDog, deleteDog, getDogsfitered } = require("../Controllers/dogs")
 const { getTemp } = require("../Controllers/temps")
 const {Dog, Temp} = require ("../db");
 // Importar todos los routers;
@@ -18,7 +18,7 @@ router.get("/temps", getTemp);
 router.get("/dogs/:id", getDogById );
 router.post("/dogs", postDog);
 router.put("/edit/:id", putDog);
-router.delete("/delete/:", deleteDog)
+router.delete("/delete/:id", deleteDog)
 
 
 module.exports = router;

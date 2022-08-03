@@ -46,9 +46,10 @@ const getDbDogs = async () => {
         through: {
           //conprobacion de que trae "name" mediante los "attributes"
           attributes: [],
+          
         },
       },
-    });
+    });console.log(dbInfo)
     const dbDog = await dbInfo.map((e) => {
       return {
         id: e.id,
@@ -60,13 +61,16 @@ const getDbDogs = async () => {
         life_min: e.life_min,
         life_max: e.life_max,
         image: e.image,
-      };
+        temp: e.temps.map(e=>e.name),
+          };
     });
+    //console.log(dbDog)
     return dbDog;
   } catch (error) {
     console.log(error);
   }
 };
+
 const getAllDogs = async () => {
   try {
     const apiInfo = await getApiDogs();
@@ -159,56 +163,6 @@ const postDog = async (req, res) => {
 };
 
 
-
-// const validate = await Dog.findOne({where:temp})
-// if(!validate){
-//     const dogCreate =await Dog.create(dog)
-//     let dogDb = await Temp.findAll({
-//      where:temp
-//     })
-//     console.log(dogDb)
-//     await dogCreate.addType(dogDb)
-//     res.status(200).send("Perro creado con exito")
-// }else{
-//     let dogDb2 = await Temp.findAll({
-//         where:temp
-//     })
-//     await validate.addTemp(dogDb2)
-//     res.status(200).send('Perro creado con exito')
-// }
-
-// try {
-//   const {
-//     name,
-//     height_min,
-//     height_max,
-//     weight_min,
-//     weight_max,
-//     life_min,
-//     life_max,
-//     image,
-//     temp
-//   } = req.body;
-
-//   const idv4 = uuidv4();
-//   let dbId = idv4.slice(0, 4);
-//   let DogCreated = await Dog.create({
-//     id: dbId,
-//     name: name,
-//     height_min: height_min,
-//     height_max: height_max,
-//     weight_min: weight_min,
-//     weight_max: weight_max,
-//     life_min: life_min,
-//     life_max: life_max,
-//     image: image,
-//   });
-//   DogCreated.addTemp(temp);
-//   res.status(201).json(DogCreated)
-//   res.status(200).send("Perro creado con exito!");
-// } catch (error) {
-//   return error;
-// }
 
 const getDogById = async (req, res) => {
   try {
@@ -331,3 +285,53 @@ const getDogs = async (req, res) => {
       await  DogCreated.addTemp(postTemp);
     });
 */
+
+// const validate = await Dog.findOne({where:temp})
+// if(!validate){
+//     const dogCreate =await Dog.create(dog)
+//     let dogDb = await Temp.findAll({
+//      where:temp
+//     })
+//     console.log(dogDb)
+//     await dogCreate.addType(dogDb)
+//     res.status(200).send("Perro creado con exito")
+// }else{
+//     let dogDb2 = await Temp.findAll({
+//         where:temp
+//     })
+//     await validate.addTemp(dogDb2)
+//     res.status(200).send('Perro creado con exito')
+// }
+
+// try {
+//   const {
+//     name,
+//     height_min,
+//     height_max,
+//     weight_min,
+//     weight_max,
+//     life_min,
+//     life_max,
+//     image,
+//     temp
+//   } = req.body;
+
+//   const idv4 = uuidv4();
+//   let dbId = idv4.slice(0, 4);
+//   let DogCreated = await Dog.create({
+//     id: dbId,
+//     name: name,
+//     height_min: height_min,
+//     height_max: height_max,
+//     weight_min: weight_min,
+//     weight_max: weight_max,
+//     life_min: life_min,
+//     life_max: life_max,
+//     image: image,
+//   });
+//   DogCreated.addTemp(temp);
+//   res.status(201).json(DogCreated)
+//   res.status(200).send("Perro creado con exito!");
+// } catch (error) {
+//   return error;
+// }
