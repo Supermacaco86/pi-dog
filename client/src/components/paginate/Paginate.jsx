@@ -17,18 +17,18 @@ export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, cur
             onClick={()=>
             setCurrentPage(currentPage === 1? 
             currentPage:
-            currentPage-1)}>Previo</button> 
-            {pageNumber && pageNumber.map((number)=>(
-            <button 
+            currentPage - 1)}>Previo</button> 
+            {pageNumber && pageNumber.map((number)=>( 
+            <button
             disabled={currentPage === number}
             key={number}
             onClick={()=> paginate(number)}>{number}
             </button>
             ))}
             <button
-            disabled={currentPage === pageNumber.length }
+            disabled={currentPage === pageNumber.length}
             onClick={()=> 
-            setCurrentPage(currentPage ===numPage?
+            setCurrentPage(currentPage === numPage?
             currentPage:
             currentPage + 1)}>Siguiente</button> 
         </ul>

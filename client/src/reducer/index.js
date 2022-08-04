@@ -42,7 +42,7 @@ function rootReducer (state = initialState, action){
             const dogsState = state.allDogs;
             //console.log(dogsState[0])
            const temperamentsFilter = dogsState.filter((e)=>{
-            return e.temp?.split(", ").includes(action.payload)
+            return e.temp?.includes(action.payload)
            })
             return {
                 ...state,  
@@ -65,6 +65,25 @@ function rootReducer (state = initialState, action){
                     ...state,
                     dogs: sortName
             };
+
+
+            case 'ORDER_BY_HEIGHT':
+                let sortHeight = action.payload === 'height_max'? 
+                state.dogs.sort(function (a, b){
+                    if (a.height_max > b.height_max){return 1};
+                    if (b.height_max > a.height_max){return -1};
+                    return 0;
+                }) :
+                state.dogs.sort(function(a, b){
+                    if (a.height_max > b.height_max){return -1};
+                    if (b.height_max > a.height_max){return 1};
+                    return 0;
+                })
+                return{
+                    ...state,
+                    dogs: sortHeight
+            };
+
 
         case 'ALPHABETICAL_SORT':
             let sortByAlfa = [...state.dogs]

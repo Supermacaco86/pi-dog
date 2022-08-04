@@ -86,6 +86,13 @@ export function filterByTemp(value){
     };
 };
 
+export function orderByheight(value){
+    return {
+      type: 'ORDER_BY_HEIGHT',
+      payload: value 
+    };
+};
+
 export function orderByName(payload){
     return {
         type: 'ORDER_BY_NAME',

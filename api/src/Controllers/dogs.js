@@ -26,7 +26,7 @@ const getApiDogs = async () => {
         weight_max:
           e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
         life_span: life? life : 'de ' + lifeMin + ' a ' + lifeMax ,
-        temp: e.temperament ? e.temperament : "Temperamento no encontrado",
+        temp: e.temperament? e.temperament.split(', ') :["Temperamento no encontrado"],
         image: e.image.url?e.image.url:"Imagen no encontrada",
       };
     });
@@ -61,7 +61,8 @@ const getDbDogs = async () => {
         life_min: e.life_min,
         life_max: e.life_max,
         image: e.image,
-        temp: e.temps.map(e=>e.name),
+        temp: e.temps?.map(e=>e.name),
+        created: e.dogCreated,
           };
     });
     //console.log(dbDog)
@@ -149,10 +150,21 @@ const postDog = async (req, res) => {
     })
     if(!validate) {
       let newDog = await Dog.create(dog);
-      let dogDb = await Temp.findAll({
+     /*  let dogDb = await Temp.findAll({
         where: { name: temp },
       });
-      await newDog.addTemp(dogDb);
+      await newDog.addTemp(dogDb); */
+      temp.map(async (t) => {
+        const [postTemp, succes] = await Temp.findOrCreate({
+          where: {
+            name: t,
+          },
+          defaults: {
+            name: t,
+          },
+        });
+        await newDog.addTemp(postTemp);
+      });
       res.status(200).send(dog);
     }else {
       res.status(400).send('perro ya existente')

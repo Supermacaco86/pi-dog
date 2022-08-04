@@ -7,7 +7,7 @@ import "./Filters.css"
 
 
 
-export default function Filters({ allTemps, setCurrentPage, handleReset, handleSort, handleFilterTemp, handleSortDogs, handleSortWeight}) {
+export default function Filters({ allTemps,handleSortheight, setCurrentPage, handleReset, handleSort, handleFilterTemp, handleSortDogs, handleSortWeight}) {
 const dispatch = useDispatch();
 
 function onChageExist(e){
@@ -30,15 +30,14 @@ function onChageExist(e){
 
         <div className="form__group" >
         <select className="form__field w-100" onChange={onChageExist}>
-            <option value="" disabled selected>Filtro creados</option>
+            <option value="" disabled selected hidden>Filtro creados</option>
             <option value="all">Todos</option>
             <option value="exist">De API</option>
             <option value="created">De database</option>
         </select>
 
         <select className="form__field w-100" onChange={(e) => handleFilterTemp(e)}>
-            <option value="" disabled selected>Filtro por temperamento</option>
-            <option value="all">Todos</option>
+            <option value="" disabled selected hidden>Filtro por temperamento</option>
             {allTemps.map((e) => (
             <option key={e} value={e}>{e}</option>
             ))}
@@ -48,13 +47,19 @@ function onChageExist(e){
         <div className="orden">
         
         <select className="form__field w-100" onChange={(e) => handleSortWeight(e)}>
-            <option value=""disabled selected >Orden por peso</option>
+            <option value=""disabled selected hidden >Orden por peso</option>
             <option value="weightasc">Mas pesado</option>
             <option value="weightdesc">Mas liviano</option>
         </select>
 
+        <select className="form__field w-100" onChange={(e) => handleSortheight(e)}>
+            <option value=""disabled selected hidden >Orden por altura</option>
+            <option value="height_min">Mas alto</option>
+            <option value="height_max">Mas bajo</option>
+        </select>
+
         <select className="form__field w-100" onChange={(e) => handleSort(e)}>
-            <option value=""disabled selected >Orden alfabetico</option>
+            <option value=""disabled selected hidden >Orden alfabetico</option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
         </select>

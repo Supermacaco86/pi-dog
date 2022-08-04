@@ -38,7 +38,7 @@ console.log(input)
     }
 
     function handleSelect(e) {
-        if(!input.temp.includes(e.target.value)){
+        if(!input.temp.includes(e.target.value) && input.temp.length <= 4){
         setInput({
             ...input,
             temp: [...input.temp, e.target.value],
@@ -57,7 +57,7 @@ console.log(input)
         e.preventDefault()
         console.log(input)
         dispatch(addDogs(input))
-       alert("Perro creado correctamente!")
+       alert("created")
        setInput({
                 name: "",
                 image: "",
@@ -69,7 +69,9 @@ console.log(input)
                 life_max: "",
                 temp: [],
        })
-       history('/home')
+       setTimeout(function(){
+           history('/home')
+       },5000 )
       }
 
     useEffect(() => {
@@ -77,17 +79,50 @@ console.log(input)
       }, [dispatch]);
     
 
+      const alert = function(error){
+        if (error !== 'undefined') {
+          const mod = document.getElementById('alert')
+          const modText = document.getElementById('content-text')
+          if (error === 'created') {
+            mod.style.cssText = 'display: flex; background-color: rgba(79, 240, 10, 0.87); min-height: 40px; width: 430px; border-radius: 50px; margin-top: 7px; padding: 20px;'
+            modText.innerHTML = '<strong>¡Felicitaciones!</strong>. Has creado ' + `<strong>${input.name}</strong>`
+            setTimeout(function(){
+              mod.style.display='none'
+            }, 5000)
+          }else {
+            mod.style.cssText = 'display: flex; background-color: rgba(240, 10, 10, 0.87); min-height: 40px; width: 430px; border-radius: 50px; margin-top: 7px; padding: 20px;'
+            modText.innerHTML = '<strong>¡Momentito!</strong>. No podes dejar ' + `${error}` + ' vacio. Por favor complete todos los datos requeridos'
+            setTimeout(function(){
+              mod.style.display='none'
+            }, 3000)
+          }
+        }
+      }
+
+      const funcion = function(){
+        let d = input;
+        for(const e in d) {
+          if (!d[e] || !d[e].length) {
+            alert(e)
+          }else {
+            continue
+          }break
+        }
+      }
+
 
     return(
         <div className="todo">
-        <div className="form__group">
+        <div className="form_group">
             <Link to="/home">
             <button>Volver a home</button>
             </Link>
 
             <h1 className="letra">Crea un nuevo perro!</h1>
-
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <div className="content__alert" id='alert' style={{display: "none"}}>
+            <div id='content-text' ></div>
+            </div>
+            <form className="form_contain"  onSubmit={(e) => handleSubmit(e)}>
             <label>Raza:</label>
             <br/>
                 <input
@@ -101,6 +136,8 @@ console.log(input)
                 onChange={(e) => handleChange(e)}
             />
             <br/>
+            <div className="form_tamyPeso">
+            <div className="form_tam">
             <label>Tamaño:</label>
             <div>
                 <input
@@ -130,6 +167,8 @@ console.log(input)
                 onChange={(e) => handleChange(e)}
             />cm.
             </div>
+            </div>
+            <div className="form_peso">
             <label>Peso:</label>
             <div>
                 <input
@@ -158,6 +197,8 @@ console.log(input)
                 placeholder="Max"
                 onChange={(e) => handleChange(e)}
             />kg.
+            </div>
+            </div>
             </div>
             <label>Años de vida:</label>
             <div>
@@ -211,7 +252,7 @@ console.log(input)
                 </div>
                 )}
                 <br/>
-                <div>
+                <div className="divMouse" onMouseEnter={funcion}>
                 <button
                 disabled={
                     !input.name ||

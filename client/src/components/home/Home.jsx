@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getDogs, getTemps, orderByName, filterByTemp, orderByWeight} from '../../actions/index';
+import {getDogs, getTemps, orderByName, filterByTemp, orderByWeight, orderByheight} from '../../actions/index';
 import NavBar from '../navBar/NavBar.jsx';
 import Cards from '../cards/Cards';
 import Filters from "../filters/Filters";
@@ -16,7 +16,7 @@ export default function Home(){
     const dogs = useSelector(state => state.dogs);
     const loading = useSelector(state=> state.loading)
     const dispatch = useDispatch();
-    console.log(dogs)
+    console.log(allTemps)
 
     const[currentPage, setCurrentPage]= useState(1);
     const[dogByPage]=useState(8);
@@ -53,6 +53,13 @@ export default function Home(){
         setOrder(e.target.value);
     }
 
+    function handleSortheight(e) {
+        e.preventDefault();
+        dispatch(orderByheight(e.target.value));
+        setCurrentPage(1);
+        setOrder(e.target.value);
+    }
+
     function handleFilterTemp(e) {
         e.preventDefault(e);
         dispatch(filterByTemp(e.target.value));
@@ -74,6 +81,7 @@ export default function Home(){
         />
         <Filters
         allTemps={allTemps}
+        handleSortheight={handleSortheight}
         handleReset={handleReset}
         handleSort={handleSort}
         handleFilterTemp={handleFilterTemp}

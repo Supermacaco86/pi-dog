@@ -67,6 +67,8 @@
     /* box-shadow: 0 5px 10px #000; */
 }
 
+
+
 .card .back .link{
     border-top: solid 1px #f3f3f3;
     height: 50px;
@@ -81,6 +83,20 @@
     font-size: 30px;
     margin-top: 20px;
     letter-spacing: 2px;
+}
+
+.nombreD{
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.temp{
+    padding-top: 10px;
+}
+
+.pTemp{
+    
+    margin: 3px;
 }
 
 .card .back .p{
