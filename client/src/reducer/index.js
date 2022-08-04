@@ -66,6 +66,18 @@ function rootReducer (state = initialState, action){
                     dogs: sortName
             };
 
+            // case 'FILTER_BY_LIFE':
+            //     let life= action.payload
+            //     console.log(life)
+            //     if(life >= 13){
+            //         return life
+            //     }
+               
+                // return{
+                //     ...state,
+                //     dogs: life
+                // }
+
 
             case 'ORDER_BY_HEIGHT':
                 let sortHeight = action.payload === 'height_max'? 

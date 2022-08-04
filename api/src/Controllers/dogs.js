@@ -16,6 +16,7 @@ const getApiDogs = async () => {
       }
       return {
         id: e.id,
+        fuerza: e.bred_for,
         name: e.name,
         height_min:
           e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
@@ -150,10 +151,6 @@ const postDog = async (req, res) => {
     })
     if(!validate) {
       let newDog = await Dog.create(dog);
-     /*  let dogDb = await Temp.findAll({
-        where: { name: temp },
-      });
-      await newDog.addTemp(dogDb); */
       temp.map(async (t) => {
         const [postTemp, succes] = await Temp.findOrCreate({
           where: {
@@ -173,7 +170,6 @@ const postDog = async (req, res) => {
     console.log(error)
   }
 };
-
 
 
 const getDogById = async (req, res) => {
@@ -244,106 +240,3 @@ module.exports = {
   getDogsfitered,
 };
 
-/*
-
-
-const deleteDog = async (req, res) => {
-  try {
-    const id = req.params.id;
-    await Dog.destroy({
-      where: { id: id },
-    });
-    return res.send("deleted!");
-  } catch (error) {
-    return error;
-  }
-};
-"id": "5d5f",
-    "name": "Bond",
-    "height_min": "10",
-    "height_max": "15",
-    "weight_min": "10",
-    "weight_max": "15",
-    "life_min": "10",
-    "life_max": "15"
-*/
-
-//   try{
-
-/*
-const getDogs = async (req, res) => {
-    const { name } = req.query;
-    let allDogs = await getAllDogs();
-    if (name) {
-      const dogName = await allDogs.filter((e) =>
-        e.name.toLowerCase().startsWith(name.toLowerCase())
-      );
-      dogName.length
-        ? res.status(200).send(dogName)
-        : res.status(404).send("Perro no encontrado");
-    } else {
-      res.status(200).send(allDogs);
-    }
-  };
-
-
-  temp.map(async (t) => {
-      const [postTemp, succes] = await Temp.findOrCreate({
-        where: {
-          name: t,
-        },
-        defaults: { name: t },
-      });
-      await  DogCreated.addTemp(postTemp);
-    });
-*/
-
-// const validate = await Dog.findOne({where:temp})
-// if(!validate){
-//     const dogCreate =await Dog.create(dog)
-//     let dogDb = await Temp.findAll({
-//      where:temp
-//     })
-//     console.log(dogDb)
-//     await dogCreate.addType(dogDb)
-//     res.status(200).send("Perro creado con exito")
-// }else{
-//     let dogDb2 = await Temp.findAll({
-//         where:temp
-//     })
-//     await validate.addTemp(dogDb2)
-//     res.status(200).send('Perro creado con exito')
-// }
-
-// try {
-//   const {
-//     name,
-//     height_min,
-//     height_max,
-//     weight_min,
-//     weight_max,
-//     life_min,
-//     life_max,
-//     image,
-//     temp
-//   } = req.body;
-
-//   const idv4 = uuidv4();
-//   let dbId = idv4.slice(0, 4);
-//   let DogCreated = await Dog.create({
-//     id: dbId,
-//     name: name,
-//     height_min: height_min,
-//     height_max: height_max,
-//     weight_min: weight_min,
-//     weight_max: weight_max,
-//     life_min: life_min,
-//     life_max: life_max,
-//     image: image,
-//   });
-//   DogCreated.addTemp(temp);
-//   res.status(201).json(DogCreated)
-//   res.status(200).send("Perro creado con exito!");
-// } catch (error) {
-//   return error;
-// }

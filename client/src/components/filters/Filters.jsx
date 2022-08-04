@@ -1,14 +1,15 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {getDogs} from "../../actions";
+import {getDogs, getLife} from "../../actions";
 import "./Filters.css"
 
 
 
 
 
-export default function Filters({ allTemps,handleSortheight, setCurrentPage, handleReset, handleSort, handleFilterTemp, handleSortDogs, handleSortWeight}) {
+export default function Filters({ allTemps, handleSortheight, setCurrentPage, handleReset, handleSort, handleFilterTemp, handleSortWeight}) {
 const dispatch = useDispatch();
+
 
 function onChageExist(e){
     let value = e.target.value;
@@ -23,11 +24,7 @@ function onChageExist(e){
 
     return (
         <div className="total" >
-           
-
         <div className="filtros">    
-     
-
         <div className="form__group" >
         <select className="form__field w-100" onChange={onChageExist}>
             <option value="" disabled selected hidden>Filtro creados</option>
@@ -35,6 +32,7 @@ function onChageExist(e){
             <option value="exist">De API</option>
             <option value="created">De database</option>
         </select>
+
 
         <select className="form__field w-100" onChange={(e) => handleFilterTemp(e)}>
             <option value="" disabled selected hidden>Filtro por temperamento</option>
@@ -45,7 +43,6 @@ function onChageExist(e){
         </div>
           
         <div className="orden">
-        
         <select className="form__field w-100" onChange={(e) => handleSortWeight(e)}>
             <option value=""disabled selected hidden >Orden por peso</option>
             <option value="weightasc">Mas pesado</option>

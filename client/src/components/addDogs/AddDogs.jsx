@@ -85,7 +85,7 @@ console.log(input)
           const modText = document.getElementById('content-text')
           if (error === 'created') {
             mod.style.cssText = 'display: flex; background-color: rgba(79, 240, 10, 0.87); min-height: 40px; width: 430px; border-radius: 50px; margin-top: 7px; padding: 20px;'
-            modText.innerHTML = '<strong>¡Felicitaciones!</strong>. Has creado ' + `<strong>${input.name}</strong>`
+            modText.innerHTML = '<strong>¡Felicitaciones!</strong>. Has creado a ' + `<strong>${input.name}</strong>`
             setTimeout(function(){
               mod.style.display='none'
             }, 5000)
@@ -139,7 +139,7 @@ console.log(input)
             <div className="form_tamyPeso">
             <div className="form_tam">
             <label>Tamaño:</label>
-            <div>
+            <div>Desde:
                 <input
                 className="form__field w-100"
                 type="number"
@@ -153,7 +153,7 @@ console.log(input)
                 onChange={(e) => handleChange(e)}
             />cm.
             </div>
-            <div>
+            <div>Hasta : 
                 <input
                 className="form__field w-100"
                 type="number"
@@ -201,7 +201,7 @@ console.log(input)
             </div>
             </div>
             <label>Años de vida:</label>
-            <div>
+            <div>Desde:
                 <input
                 className="form__field w-100"
                 min="1"
@@ -215,7 +215,7 @@ console.log(input)
                 onChange={(e) => handleChange(e)}
                 />{" "}años
             </div>
-            <div>
+            <div>Hasta :
                 <input
                 className="form__field w-100"
                 min="1"

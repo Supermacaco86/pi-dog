@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getDogs, getTemps, orderByName, filterByTemp, orderByWeight, orderByheight} from '../../actions/index';
+import {getDogs, getTemps, orderByName,handleLife, filterByTemp, orderByWeight, orderByheight} from '../../actions/index';
 import NavBar from '../navBar/NavBar.jsx';
 import Cards from '../cards/Cards';
 import Filters from "../filters/Filters";
@@ -81,6 +81,7 @@ export default function Home(){
         />
         <Filters
         allTemps={allTemps}
+        // handleLife={handleLife}
         handleSortheight={handleSortheight}
         handleReset={handleReset}
         handleSort={handleSort}

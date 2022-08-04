@@ -42,17 +42,47 @@ body{
     }
     }
 
+@media all and (max-width:850px){
+    .home{
+        width:810px ; 
+    }
+    }
+
+
+@media all and (max-width:450px){
+        .home{
+           width:400px ; 
+        }
+        }
+
 @media all and (max-width:420px){
         .home{
-           width:380px ; 
+            width:400px ; 
+        }
+        }  
+        
+@media all and (max-width:415px){
+        .home{
+            width:395px ; 
         }
         }
-    
+
+ @media all and (max-width:400px){
+        .home{
+            width:380px ; 
+        }
+        }
 
 
-@media all and (max-width:380px){
+@media all and (max-width:360px){
     .home{
-       width:300px ; 
+       width:340px ; 
+    }
+    }
+
+@media all and (max-width:290px){
+    .home{
+        width:270px ; 
     }
     }
 

@@ -15,8 +15,9 @@ export default function Details(){
     //const [loading, setLoading] = useState(true);
     //const id = props.match.params.id;
     const details = useSelector((state)=>state.details)
-    const loading = useSelector((state) => state.loading)
+    //const loading = useSelector((state) => state.loading)
 console.log(details)
+
     function handleDelete(e){
         e.preventDefault(e);
         dispatch(deleteDog(id))
@@ -52,6 +53,7 @@ console.log(details)
                     return<h3 key={e}>{e}</h3>
                 })
             }
+            <h3>Fuerza: { details.length? details[0].fuerza:"Cargando"}</h3>
             <h3>Peso: { details.length? details[0].weight_min: "Cargando"} - { details.length? details[0].weight_max: "Cargando"} kg.</h3>
             <h3>Altura: { details.length? details[0].height_min: "Cargando"} - { details.length? details[0].height_max: "Cargando"} Cm.</h3>
             <h3>Tiempo de vida {lifeSpan} años</h3>

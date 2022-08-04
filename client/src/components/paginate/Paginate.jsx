@@ -35,3 +35,5 @@ export default function Paginate({dogByPage, dogs, paginate, setCurrentPage, cur
     </div>
   )
 }
+
+
